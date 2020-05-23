@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public abstract class Character : MonoBehaviour {
     [SerializeField]
     private float speed = 0;
@@ -10,6 +12,8 @@ public abstract class Character : MonoBehaviour {
     private Rigidbody2D mRigidbody;
     protected bool isAttacking = false;
     protected Coroutine attackRoutine;
+    [SerializeField]
+    protected Transform hitBox;
     public bool IsMoving {
         get {
             return direction.magnitude > 0.1;
@@ -52,12 +56,16 @@ public abstract class Character : MonoBehaviour {
         mAnimator.SetLayerWeight (mAnimator.GetLayerIndex (layerName), 1);
     }
 
-    public void StopAttack () {
+    public virtual void StopAttack () {
         if (attackRoutine != null) {
             StopCoroutine (attackRoutine);
             isAttacking = false;
             mAnimator.SetBool ("attack", isAttacking);
         } 
+    }
+
+    public virtual void TakeDamage(float damage){
+        
     }
 
 }

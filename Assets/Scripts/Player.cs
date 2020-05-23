@@ -11,22 +11,25 @@ public class Player : Character {
     private float maxHealth = 100;
     private float maxMana = 50;
     [SerializeField]
-    private GameObject[] spellPrefab = null;
-    [SerializeField]
     private Transform[] exitPoints = null;
     private int exitIndex;
+    private Vector3[] faceVector = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
     private Transform target;
+    public Transform MyTarget {
+        get;
+        set;
+    }
+    private SpellBook spellBook;
 
     protected override void Start () {
+        spellBook = GetComponent<SpellBook> ();
         health.Initialize (maxHealth, maxHealth);
         mana.Initialize (maxMana, maxMana);
-        target = GameObject.Find ("Target").transform;
         base.Start ();
     }
 
     protected override void Update () {
         GetInput ();
-        InLineOfSinght ();
         base.Update ();
     }
 
@@ -58,29 +61,38 @@ public class Player : Character {
             exitIndex = 3;
             direction += Vector2.right;
         }
-        if (Input.GetKeyDown (KeyCode.Space)) {
-            if (!isAttacking && !IsMoving) {
-                attackRoutine = StartCoroutine (Attack ());
-            }
-        }
     }
 
-    private IEnumerator Attack () {
-
+    private IEnumerator Attack (int spellIndex) {
+        Transform currentTarget = MyTarget; // 防止在施法过程中改变目标
+        Spell newSpell = spellBook.CastSpell (spellIndex);
         isAttacking = true;
         mAnimator.SetBool ("attack", isAttacking);
-        yield return new WaitForSeconds (1);
-        CastSpell ();
+        yield return new WaitForSeconds (newSpell.MyCastTime);
+        Debug.Log ("create" + spellIndex);
+        if (currentTarget != null) {
+            SpellScript s = Instantiate (newSpell.MySpellPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SpellScript> ();
+            s.MyTarget = currentTarget;
+        }
         StopAttack ();
     }
 
-    public void CastSpell () {
-        Instantiate (spellPrefab[0], exitPoints[exitIndex].position, Quaternion.identity);
+    public void CastSpell (int spellIndex) {
+        if (MyTarget != null && !isAttacking && !IsMoving && InLineOfSinght ()) {
+            Debug.Log ("attack" + spellIndex);
+            attackRoutine = StartCoroutine (Attack (spellIndex));
+        }
     }
 
     private bool InLineOfSinght () {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (MyTarget.position - transform.position).normalized;
         Debug.DrawRay (transform.position, direction, Color.red);
-        return false;
+        Debug.DrawRay (transform.position, faceVector[exitIndex], Color.green);
+        return (Vector3.Angle (direction, faceVector[exitIndex])) < 45;
+    }
+
+    public override void StopAttack () {
+        spellBook.StopCasting ();
+        base.StopAttack ();
     }
 }

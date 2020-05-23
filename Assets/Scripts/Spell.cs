@@ -1,34 +1,39 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
-public class Spell : MonoBehaviour {
-    private Rigidbody2D mRigidbody;
+[Serializable]
+public class Spell {
+    [SerializeField]
+    private string name = null;
+    [SerializeField]
+    private int damage = 0;
+    [SerializeField]
+    private Sprite icon = null;
     [SerializeField]
     private float speed = 0;
-    private Transform target;
-
-    // Start is called before the first frame update
-    void Start () {
-        mRigidbody = GetComponent<Rigidbody2D> ();
-        target = GameObject.Find ("Target").transform;
-        Debug.Log (target.position);
-        Debug.Log (target.transform.position);
+    [SerializeField]
+    private float castTime = 0;
+    [SerializeField]
+    private GameObject spellPrefab = null;
+    [SerializeField]
+    private Color barColor = Color.black;
+    public string MyName {
+        get { return name; }
+    }
+    public int MyDamage {
+        get { return damage; }
+    }
+    public float MySpeed {
+        get { return speed; }
+    }
+    public float MyCastTime {
+        get { return castTime; }
+    }
+    public GameObject MySpellPrefab {
+        get { return spellPrefab; }
     }
 
-    public void Fire () {
-
-    }
-
-    private void FixedUpdate () {
-        Vector2 direction = target.position - transform.position;
-        mRigidbody.velocity = direction.normalized * speed;
-        float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-    }
-
-    // Update is called once per frame
-    void Update () {
-
-    }
 }
