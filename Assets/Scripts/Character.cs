@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent (typeof (Animator))]
 public abstract class Character : MonoBehaviour {
     [SerializeField]
     private float speed = 0;
@@ -14,6 +14,13 @@ public abstract class Character : MonoBehaviour {
     protected Coroutine attackRoutine;
     [SerializeField]
     protected Transform hitBox;
+    [SerializeField]
+    protected Stat health;
+    public Stat MyHealth {
+        get {return health;}
+    }
+    [SerializeField]
+    private float maxHealth = 100;
     public bool IsMoving {
         get {
             return direction.magnitude > 0.1;
@@ -23,6 +30,7 @@ public abstract class Character : MonoBehaviour {
     protected virtual void Start () {
         mRigidbody = GetComponent<Rigidbody2D> ();
         mAnimator = GetComponent<Animator> ();
+        health.Initialize (maxHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -61,11 +69,14 @@ public abstract class Character : MonoBehaviour {
             StopCoroutine (attackRoutine);
             isAttacking = false;
             mAnimator.SetBool ("attack", isAttacking);
-        } 
+        }
     }
 
-    public virtual void TakeDamage(float damage){
-        
+    public virtual void TakeDamage (float damage) {
+        health.MyCurrentValue -= damage;
+        if (health.MyCurrentValue <= 0) {
+            mAnimator.SetTrigger("die");
+        }
     }
 
 }

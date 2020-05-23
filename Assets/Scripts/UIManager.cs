@@ -4,11 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
+    private static UIManager instance;
+    public static UIManager MyInstance {
+        get {
+            if (instance == null) {
+                instance = FindObjectOfType<UIManager> ();
+                return instance;
+            }
+            return instance;
+        }
+    }
+
     [SerializeField]
     private Button[] actionButtons = null;
     private KeyCode action1, action2, action3;
+    [SerializeField]
+    private GameObject targetFrame;
+    private Stat healthStat = null;
+    [SerializeField]
+    private Image portraitFrame;
     // Start is called before the first frame update
     void Start () {
+        healthStat = targetFrame.GetComponentInChildren<Stat>();
         action1 = KeyCode.Alpha1;
         action2 = KeyCode.Alpha2;
         action3 = KeyCode.Alpha3;
@@ -29,5 +46,21 @@ public class UIManager : MonoBehaviour {
 
     private void ActionButtonOnClick (int btnIndex) {
         actionButtons[btnIndex].onClick.Invoke ();
+    }
+
+    public void ShowTargetFrame (NPC target) {
+        targetFrame.SetActive (true);
+        healthStat.Initialize(target.MyHealth.MyCurrentValue, target.MyHealth.MyMaxValue);
+        portraitFrame.sprite = target.MyPortrait;
+        target.healthChanged += new HealthChanged(UpdateTargetFrame);
+        target.characterRemoved += new CharacterRemoved(HideTargetFrame);
+    }
+
+    public void HideTargetFrame(){
+        targetFrame.SetActive (false);
+    }
+
+    public void UpdateTargetFrame(float health){
+        healthStat.MyCurrentValue = health;
     }
 }

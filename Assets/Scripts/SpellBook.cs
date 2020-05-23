@@ -11,7 +11,7 @@ public class SpellBook : MonoBehaviour {
     [SerializeField]
     private Text castTime = null;
     [SerializeField]
-    private CanvasGroup canvasGroup;
+    private CanvasGroup canvasGroup = null;
     private Coroutine spellRoutine;
     private Coroutine fadeRoutine;
     // Start is called before the first frame update

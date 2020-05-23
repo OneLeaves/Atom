@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Stat : MonoBehaviour {
 
-    private Image content;
+    private Image content; // 生命条图片
     [SerializeField]
     private Text statValue = null;
     private float lerpSpeed = 5;
@@ -21,30 +21,33 @@ public class Stat : MonoBehaviour {
                 currentValue = MyMaxValue;
             } else if (value < 0) {
                 currentValue = 0;
-            } else{
+            } else {
                 currentValue = value;
             }
             currentFill = currentValue / MyMaxValue;
-            statValue.text = MyCurrentValue + "";
+            if (statValue != null) {
+                statValue.text = MyCurrentValue + "";
+            }
+
         }
     }
 
     // Start is called before the first frame update
     void Start () {
-        MyMaxValue = 100;
         content = GetComponent<Image> ();
     }
 
     // Update is called once per frame
     void Update () {
-        if (currentFill != content.fillAmount){
-            content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
+        if (currentFill != content.fillAmount) {
+            content.fillAmount = Mathf.Lerp (content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
         }
-        
+
     }
 
-    public void Initialize(float currentValue, float maxValue){
+    public void Initialize (float currentValue, float maxValue) {
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
+        content.fillAmount = MyCurrentValue / MyMaxValue;
     }
 }

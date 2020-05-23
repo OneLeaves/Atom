@@ -5,10 +5,7 @@ using UnityEngine;
 public class Player : Character {
 
     [SerializeField]
-    private Stat health = null;
-    [SerializeField]
     private Stat mana = null;
-    private float maxHealth = 100;
     private float maxMana = 50;
     [SerializeField]
     private Transform[] exitPoints = null;
@@ -23,7 +20,7 @@ public class Player : Character {
 
     protected override void Start () {
         spellBook = GetComponent<SpellBook> ();
-        health.Initialize (maxHealth, maxHealth);
+
         mana.Initialize (maxMana, maxMana);
         base.Start ();
     }
@@ -72,7 +69,7 @@ public class Player : Character {
         Debug.Log ("create" + spellIndex);
         if (currentTarget != null) {
             SpellScript s = Instantiate (newSpell.MySpellPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SpellScript> ();
-            s.MyTarget = currentTarget;
+            s.Initialize(currentTarget, newSpell.MyDamage);
         }
         StopAttack ();
     }
