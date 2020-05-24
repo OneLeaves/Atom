@@ -1,5 +1,6 @@
 # Atom
-记录一些心得  
+学习inScope Studios教程记录一些心得  
+教程链接https://www.youtube.com/user/KnnthRA  
 20/05/04  
 解决2d角色与环境之间的遮挡问题：  
 1、设置Transparency Sort Mode为Custom Axis。Transparency Sort Axis为0、1、0。  
