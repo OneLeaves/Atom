@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : NPC {
     [SerializeField]
-    private CanvasGroup healthGroup;
+    private CanvasGroup healthGroup = null;
     public override Transform Select(){
         healthGroup.alpha = 1;
 

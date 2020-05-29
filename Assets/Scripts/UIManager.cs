@@ -19,10 +19,10 @@ public class UIManager : MonoBehaviour {
     private Button[] actionButtons = null;
     private KeyCode action1, action2, action3;
     [SerializeField]
-    private GameObject targetFrame;
+    private GameObject targetFrame = null;
     private Stat healthStat = null;
     [SerializeField]
-    private Image portraitFrame;
+    private Image portraitFrame = null;
     // Start is called before the first frame update
     void Start () {
         healthStat = targetFrame.GetComponentInChildren<Stat>();

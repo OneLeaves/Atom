@@ -34,7 +34,7 @@ public class Stat : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        content = GetComponent<Image> ();
+        content = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -48,6 +48,9 @@ public class Stat : MonoBehaviour {
     public void Initialize (float currentValue, float maxValue) {
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
+        if(content == null) {
+            content = GetComponent<Image>();
+        }
         content.fillAmount = MyCurrentValue / MyMaxValue;
     }
 }

@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
     }
 
     private void ClickTarget () {
+
+        Debug.Log("mb" + Input.GetMouseButtonDown(0));
+        Debug.Log("ip" + EventSystem.current.IsPointerOverGameObject());
         if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject()) {
             RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero, Mathf.Infinity, LayerMask.GetMask ("Clickable"));
             if (hit.collider != null) {

@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: -9030329824578680296, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 2064775212213459780, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 5310194754266385674, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 1093322335628213334, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 8096668429458821923, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 7806014354678736379, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 3472499252858563494, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 8615462059371855731, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -1346332615997556901, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 8677301677178453557, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 955099189262046444, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -6372168379896134262, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 4255994774329467256, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 531631220096277362, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -4562279847958093639, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -729568865020366261, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 7168927549304561361, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -8408382641047261429, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 3253488250487599554, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -8308854836985184441, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: 509893851127687922, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    - {fileID: -2088164715751865834, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+    totalSpriteSurfaceArea: 90112
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 2064775212213459780, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -9030329824578680296, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 1093322335628213334, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 5310194754266385674, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 7806014354678736379, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 8096668429458821923, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 8615462059371855731, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 3472499252858563494, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 8677301677178453557, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -1346332615997556901, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 955099189262046444, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -6372168379896134262, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 4255994774329467256, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 531631220096277362, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -4562279847958093639, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -729568865020366261, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 7168927549304561361, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -8408382641047261429, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 3253488250487599554, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -8308854836985184441, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: 509893851127687922, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  - {fileID: -2088164715751865834, guid: 778ed34d9c97e8043ba730928e5b9c35, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Enviroment_1
+  - Enviroment_0
+  - Enviroment_3
+  - Enviroment_2
+  - Enviroment_5
+  - Enviroment_4
+  - Enviroment_7
+  - Enviroment_6
+  - Enviroment_9
+  - Enviroment_8
+  - Enviroment_10
+  - Enviroment_11
+  - Enviroment_12
+  - Enviroment_13
+  - Enviroment_14
+  - Enviroment_15
+  - Enviroment_16
+  - Enviroment_17
+  - Enviroment_18
+  - Enviroment_19
+  - Enviroment_23
+  - Enviroment_24
+  m_Tag: WaterAtlas
+  m_IsVariant: 0

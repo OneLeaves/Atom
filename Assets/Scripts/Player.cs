@@ -6,7 +6,7 @@ public class Player : Character {
 
     [SerializeField]
     private Stat mana = null;
-    private float maxMana = 50;
+    private float maxMana = 48;
     [SerializeField]
     private Transform[] exitPoints = null;
     private int exitIndex;
@@ -20,7 +20,6 @@ public class Player : Character {
 
     protected override void Start () {
         spellBook = GetComponent<SpellBook> ();
-
         mana.Initialize (maxMana, maxMana);
         base.Start ();
     }
@@ -91,5 +90,16 @@ public class Player : Character {
     public override void StopAttack () {
         spellBook.StopCasting ();
         base.StopAttack ();
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.tag == "Obstacle") {
+            other.GetComponent<Obstacle>().FadeOut();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Obstacle") {
+            other.GetComponent<Obstacle>().FadeIn();
+        }
     }
 }

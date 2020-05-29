@@ -9,7 +9,7 @@ public class NPC : Character {
     public event HealthChanged healthChanged;
     public event CharacterRemoved characterRemoved;
     [SerializeField]
-    private Sprite portrait;
+    private Sprite portrait = null;
     public Sprite MyPortrait {
         get {
             return portrait;
